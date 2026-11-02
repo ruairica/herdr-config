@@ -1,0 +1,42 @@
+onboarding = false
+[ui]
+agent_panel_sort = "priority"
+prompt_new_tab_name = false
+
+[ui.toast]
+delivery = "herdr"
+
+[theme]
+name = "terminal"
+auto_switch = false
+
+[terminal]
+default_shell = 'C:\Program Files\PowerShell\7\pwsh.exe'
+
+# New tab + launch Claude Code
+[[keys.command]]
+key = "prefix+alt+c"
+type = "shell"
+command = 'pwsh -NoProfile -ExecutionPolicy Bypass -File "C:\Source\personal\herdr-config\scripts\new-agent-tab.ps1" claude'
+
+# New tab + launch Copilot CLI
+[[keys.command]]
+key = "prefix+alt+p"
+type = "shell"
+command = 'pwsh -NoProfile -ExecutionPolicy Bypass -File "C:\Source\personal\herdr-config\scripts\new-agent-tab.ps1" copilot'
+
+# Fuzzy-pick a folder under C:\Source and type its path into the focused pane (pathpick\ in this repo)
+[[keys.command]]
+key = "prefix+f"
+type = "popup"
+command = 'C:\Source\personal\herdr-config\pathpick\pathpick.exe -root C:\Source'
+width = "80%"
+height = "60%"
+
+# lazygit in a popup over the current tab
+[[keys.command]]
+key = "prefix+alt+g"
+type = "popup"
+command = "lazygit"
+width = "80%"
+height = "80%"
